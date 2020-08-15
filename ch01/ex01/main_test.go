@@ -5,24 +5,24 @@ import (
 	"testing"
 )
 
-func TestPrintStringsWithoutArgs(t *testing.T) {
-	buf := new(bytes.Buffer)
-	osArgs := []string{"cmd-name"} // Only command name w/o command line args
-
-	printStrings(buf, osArgs)
-
-	if buf.String() != "cmd-name" {
-		t.Errorf("printStrings(%q) // => %q", osArgs, buf.String())
+func TestMain(t *testing.T) {
+	tests := []struct {
+		osArgs []string
+		want   string
+	}{
+		{[]string{"cmd-name"}, "cmd-name"},
+		{[]string{"cmd-name", "foo", "bar"}, "cmd-name foo bar"},
 	}
-}
 
-func TestPrintStringsWithSomeArgs(t *testing.T) {
-	buf := new(bytes.Buffer)
-	osArgs := []string{"cmd-name", "foo", "bar"}
+	for _, test := range tests {
+		out = new(bytes.Buffer) // To capture output
+		osArgs = test.osArgs
 
-	printStrings(buf, osArgs)
+		main()
 
-	if buf.String() != "cmd-name foo bar" {
-		t.Errorf("printStrings(%q) // => %q", osArgs, buf.String())
+		got := out.(*bytes.Buffer).String()
+		if got != test.want {
+			t.Errorf("Args %q echoes %q, want %q", test.osArgs, got, test.want)
+		}
 	}
 }

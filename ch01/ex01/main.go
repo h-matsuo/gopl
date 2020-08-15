@@ -8,10 +8,11 @@ import (
 )
 
 // Extracted for unit tests
-func printStrings(w io.Writer, strs []string) {
-	fmt.Fprintf(w, strings.Join(strs, " "))
-}
+var (
+	out    io.Writer = os.Stdout
+	osArgs []string  = os.Args
+)
 
 func main() {
-	printStrings(os.Stdout, os.Args)
+	fmt.Fprintf(out, strings.Join(osArgs, " "))
 }

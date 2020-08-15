@@ -7,12 +7,13 @@ import (
 )
 
 // Extracted for unit tests
-func printStrings(w io.Writer, strs []string) {
-	for idx, arg := range strs[1:] {
-		fmt.Fprintf(w, "(%d, %s)\n", idx, arg)
-	}
-}
+var (
+	out    io.Writer = os.Stdout
+	osArgs []string  = os.Args
+)
 
 func main() {
-	printStrings(os.Stdout, os.Args)
+	for idx, arg := range osArgs[1:] {
+		fmt.Fprintf(out, "(%d, %s)\n", idx, arg)
+	}
 }
