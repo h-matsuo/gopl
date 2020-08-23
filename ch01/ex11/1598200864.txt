@@ -1,0 +1,499 @@
+Get "https://rapidshare.com": dial tcp 0.0.0.0:443: connect: connection refused
+Get "https://asus.com": dial tcp 103.10.4.216:443: connect: connection refused
+Get "https://orkut.com.br": dial tcp: lookup orkut.com.br: no such host
+0.59s      181  https://storage.googleapis.com
+0.62s     8690  https://pixabay.com
+0.62s    14819  https://picasa.google.com
+0.63s   111853  https://mashable.com
+0.63s     5325  https://code.google.com
+Get "https://secureserver.net": x509: certificate signed by unknown authority
+0.69s    14041  https://www.google.com
+0.68s    14142  https://ipv4.google.com
+0.70s    61712  https://books.google.com
+0.70s   502766  https://themeforest.net
+Get "https://privacyshield.gov": read tcp 192.168.0.4:51421->52.4.15.10:443: read: connection reset by peer
+0.71s     4425  https://disqus.com
+0.72s   191332  https://translate.google.com
+0.73s   107080  https://marketingplatform.google.com
+0.76s    14692  https://line.me
+0.76s   127708  https://doubleclick.net
+Get "https://nasa.gov": x509: certificate signed by unknown authority
+0.80s    80543  https://en.wikipedia.org
+0.80s    14107  https://search.google.com
+0.80s    96169  https://photos.google.com
+0.80s    86866  https://es.wikipedia.org
+0.84s    68896  https://www.wikipedia.org
+0.84s    45737  https://policies.google.com
+0.85s    42296  https://twitter.com
+Get "https://list-manage.com": x509: certificate is valid for *.mailchimp.com, mailchimp.com, not list-manage.com
+0.86s    14151  https://get.google.com
+0.86s    29098  https://vimeo.com
+0.87s   131879  https://ru.wikipedia.org
+0.90s   148629  https://pt.wikipedia.org
+0.89s   146123  https://id.wikipedia.org
+0.90s    45017  https://maps.google.com
+0.90s   144252  https://fr.wikipedia.org
+0.92s   114234  https://medium.com
+0.96s    11539  https://tinyurl.com
+0.97s   116098  https://stackoverflow.com
+0.97s     8054  https://imageshack.com
+Get "https://over-blog-kiwi.com": x509: certificate is valid for *.over-blog.com, over-blog.com, not over-blog-kiwi.com
+1.02s    34065  https://cpanel.net
+Get "https://ovh.net": x509: certificate has expired or is not yet valid: current time 2020-08-24T01:41:05+09:00 is after 2019-02-01T23:59:59Z
+1.06s     7463  https://wikimedia.org
+1.11s   195945  https://archive.org
+1.12s    92133  https://abril.com.br
+Get "https://megaupload.com": dial tcp: lookup megaupload.com: no such host
+1.14s   120844  https://www.weebly.com
+1.18s    81957  https://evernote.com
+1.21s   228204  https://digg.com
+1.25s    35053  https://photobucket.com
+1.28s    15390  https://ietf.org
+1.33s    71189  https://about.me
+1.36s    34065  https://cpanel.com
+1.38s   114566  https://developers.google.com
+1.38s   172366  https://detik.com
+Get "https://irs.gov": read tcp [2400:4050:9860:1c00:51d4:6462:b5cf:e339]:51516->[2610:30:4000:402::110]:443: read: connection reset by peer
+1.43s    11701  https://europa.eu
+1.46s   361529  https://www.yahoo.com
+1.47s  1230364  https://news.google.com
+1.52s    68552  https://ubuntu.com
+1.56s    10296  https://nginx.org
+1.56s   211835  https://ria.ru
+1.58s    20366  https://gutenberg.org
+1.63s     1555  https://bp0.blogger.com
+Get "https://www.livejournal.com": EOF
+1.81s    90440  https://creativecommons.org
+1.82s     2515  https://mega.nz
+1.83s    85665  https://apache.org
+1.84s   588923  https://www.wix.com
+2.02s   165791  https://loc.gov
+2.12s    90311  https://si.edu
+2.19s     1593  https://adssettings.google.com
+2.32s   438186  https://home.pl
+2.33s   293009  https://mail.ru
+2.36s    59954  https://www.canalblog.com
+2.91s   103659  https://office.com
+2.92s   352724  https://hollywoodreporter.com
+3.11s    55510  https://ucoz.ru
+Get "https://bp.blogspot.com": dial tcp: lookup bp.blogspot.com: no such host
+Get "https://googleusercontent.com": dial tcp: lookup googleusercontent.com: no such host
+Get "https://akamaihd.net": dial tcp: lookup akamaihd.net: no such host
+Get "https://ssl-images-amazon.com": dial tcp: lookup ssl-images-amazon.com: no such host
+Get "https://ytimg.com": dial tcp: lookup ytimg.com: no such host
+Get "https://ggpht.com": dial tcp: lookup ggpht.com: no such host
+Get "https://geocities.jp": dial tcp: lookup geocities.jp: no such host
+Get "https://cocolog-nifty.com": dial tcp: lookup cocolog-nifty.com: no such host
+Get "https://vchecks.me": dial tcp: lookup vchecks.me: no such host
+3.36s   315853  https://nypost.com
+3.39s     3367  https://t.co
+3.43s   137625  https://github.com
+3.43s   708114  https://sciencedirect.com
+3.43s   155214  https://venturebeat.com
+Get "https://windowsphone.com": x509: certificate is valid for *.oneroute.microsoft.com, oneroute.microsoft.com, not windowsphone.com
+3.47s      134  https://stores.jp
+Get "https://gesetze-im-internet.de": dial tcp: lookup gesetze-im-internet.de: no such host
+Get "https://godaddy.com": read tcp 192.168.0.4:51715->208.109.192.70:443: read: connection reset by peer
+3.54s   503341  https://softonic.com
+3.54s    40732  https://steamcommunity.com
+3.55s    78483  https://pl.wikipedia.org
+3.56s    99413  https://ja.wikipedia.org
+3.58s    12534  https://video.google.com
+3.60s   448724  https://gizmodo.com
+3.66s    41219  https://www.gov.uk
+3.67s   108411  https://it.wikipedia.org
+3.67s    48506  https://bitly.com
+3.69s    68896  https://m.wikipedia.org
+Get "https://nydailynews.com": remote error: tls: internal error
+3.70s    31908  https://pastebin.com
+3.71s    48506  https://bit.ly
+3.75s   596324  https://support.google.com
+3.77s     9254  https://forms.gle
+Get "https://globo.com": dial tcp 186.192.90.5:443: connect: connection refused
+3.82s    38424  https://wordpress.org
+3.83s     4540  https://imgur.com
+3.86s   163132  https://abcnews.go.com
+4.03s   158146  https://time.com
+4.02s   152004  https://tools.google.com
+4.02s   801991  https://people.com
+4.03s    75754  https://de.wikipedia.org
+4.08s  1005116  https://play.google.com
+4.11s    87220  https://arstechnica.com
+4.12s    93583  https://weibo.com
+4.13s   826972  https://sports.yahoo.com
+4.19s    52374  https://umich.edu
+4.22s    77890  https://issuu.com
+4.23s    25419  https://groups.google.com
+4.28s  1186384  https://techcrunch.com
+4.32s   118065  https://sedo.com
+4.36s    14246  https://soundcloud.com
+4.39s   180588  https://rt.com
+4.38s   114375  https://answers.yahoo.com
+4.39s     1555  https://bp1.blogger.com
+4.40s   632482  https://variety.com
+4.42s   804416  https://finance.yahoo.com
+4.48s     1555  https://bp3.blogger.com
+4.52s     7440  https://youronlinechoices.com
+4.54s   304897  https://my.yahoo.com
+4.65s   117441  https://yandex.ru
+4.66s    90508  https://dan.com
+4.73s     7927  https://imageshack.us
+4.73s   516427  https://news.yahoo.com
+4.87s   182354  https://ok.ru
+4.87s    53446  https://narod.ru
+4.98s    13963  https://depositfiles.com
+5.01s   237649  https://metro.co.uk
+5.10s    48659  https://arxiv.org
+5.18s   108740  https://dw.com
+5.29s    38479  https://enable-javascript.com
+5.45s   133866  https://sputniknews.com
+Get "https://www.icann.org/": dial tcp: lookup www.icann.org: no such host
+6.29s    14781  https://google.pl
+Get "https://fda.gov": dial tcp: lookup fda.gov: no such host
+Get "https://nhk.or.jp": dial tcp: lookup nhk.or.jp: no such host
+Get "https://so-net.ne.jp": x509: certificate is valid for www.so-net.ne.jp, not so-net.ne.jp
+Get "http://www.cbsnews.com/": dial tcp: lookup www.cbsnews.com: no such host
+7.13s   182938  https://dictionary.com
+7.28s    35116  https://mit.edu
+7.45s     1256  https://example.com
+7.66s   113819  https://unicef.org
+7.82s   262296  https://adweek.com
+7.87s    39327  https://harvard.edu
+8.00s    21908  https://hugedomains.com
+8.16s   208365  https://ted.com
+8.55s    36539  https://oracle.com
+8.73s    87546  https://drive.google.com
+8.74s    87127  https://docs.google.com
+8.91s    87427  https://sites.google.com
+8.91s    87176  https://plus.google.com
+8.91s   184437  https://cbc.ca
+9.07s   166018  https://mozilla.org
+9.06s   166018  https://mozilla.com
+9.09s    94478  https://www.blogger.com
+9.10s    63326  https://aliexpress.com
+9.70s    14804  https://google.com.au
+9.71s    74548  https://paypal.com
+9.82s   263913  https://qq.com
+9.82s   287798  https://ehow.com
+9.86s    70626  https://biblegateway.com
+9.86s    40849  https://nps.gov
+9.88s    84687  https://feedburner.com
+9.90s    18092  https://snapchat.com
+9.92s    36746  https://yahoo.co.jp
+9.92s    87258  https://picasaweb.google.com
+9.93s   152080  https://npr.org
+9.94s   391954  https://youtube.com
+9.95s   399348  https://youtu.be
+9.98s   246682  https://alibaba.com
+9.99s    87368  https://myaccount.google.com
+10.00s   426061  https://uol.com.br
+10.02s   713548  https://lefigaro.fr
+10.04s    46132  https://parallels.com
+10.05s    86183  https://princeton.edu
+10.05s    14781  https://google.co.uk
+10.07s    87200  https://accounts.google.com
+10.07s   171310  https://lg.com
+10.09s   151451  https://abc.net.au
+10.12s    14815  https://google.com.br
+10.12s   302393  https://marriott.com
+10.13s   468552  https://sfgate.com
+10.13s    87957  https://calendar.google.com
+10.15s   113950  https://webmd.com
+10.19s   281332  https://ndtv.com
+10.23s     7052  https://amazon.co.uk
+10.25s    36741  https://researchgate.net
+10.26s   145784  https://shopify.com
+10.33s    62378  https://washington.edu
+10.34s    72749  https://scribd.com
+10.36s    30189  https://w3.org
+10.37s    14527  https://google.com.tw
+10.37s    94478  https://draft.blogger.com
+10.37s    62610  https://cia.gov
+10.39s    50733  https://naver.jp
+10.39s   381392  https://fifa.com
+10.40s   568480  https://nationalgeographic.com
+10.43s   158802  https://economist.com
+10.43s   233027  https://pbs.org
+10.45s   485025  https://independent.co.uk
+10.46s   105721  https://linkedin.com
+10.46s    98800  https://twitch.tv
+10.47s   236350  https://goo.gl
+10.49s        9  https://newsweek.com
+10.49s   151495  https://sciencemag.org
+10.51s   379554  https://amazon.co.jp
+10.54s   169025  https://yelp.com
+10.53s   119555  https://scientificamerican.com
+10.56s    32711  https://mediafire.com
+10.56s    83842  https://whitehouse.gov
+10.56s   135940  https://playstation.com
+10.56s  1084974  https://thetimes.co.uk
+10.58s    44155  https://ap.org
+10.61s    57993  https://cornell.edu
+10.62s   385847  https://namecheap.com
+10.61s    63676  https://psu.edu
+10.63s    81356  https://istockphoto.com
+10.64s    31902  https://gnu.org
+10.65s   220269  https://daum.net
+10.66s   891742  https://smh.com.au
+10.67s   112791  https://who.int
+10.67s    79924  https://last.fm
+10.71s    93520  https://businesswire.com
+10.75s   561419  https://thesun.co.uk
+10.76s   248898  https://box.com
+10.76s    73987  https://stanford.edu
+10.75s   359633  https://goo.ne.jp
+10.76s   845985  https://bandcamp.com
+10.76s   403902  https://amazon.ca
+10.77s    45610  https://instagram.com
+10.78s   240564  https://fandom.com
+10.77s     7090  https://amazon.de
+10.78s   239638  https://walmart.com
+10.79s     5792  https://axs.com
+10.80s     7141  https://amazon.fr
+10.80s     5323  https://channel4.com
+10.81s    28644  https://scoop.it
+10.82s    68831  https://nih.gov
+10.85s   120405  https://britannica.com
+10.86s    29574  https://deezer.com
+10.86s    40738  https://afternic.com
+10.87s   336440  https://forbes.com
+10.87s   122742  https://xbox.com
+10.91s    51826  https://berkeley.edu
+10.91s   115143  https://gofundme.com
+10.92s   135192  https://tripadvisor.com
+10.96s   146569  https://zendesk.com
+11.01s   373339  https://change.org
+11.02s   111588  https://opera.com
+11.03s     1555  https://bp2.blogger.com
+11.03s   158974  https://fb.me
+11.04s   188006  https://thehill.com
+11.05s    23721  https://bloglovin.com
+11.09s   159205  https://news.com.au
+11.09s   122941  https://medicalnewstoday.com
+11.11s   185203  https://microsoft.com
+11.11s   701750  https://wikia.com
+11.12s   282941  https://engadget.com
+11.14s   121282  https://thefreedictionary.com
+11.15s  1025738  https://theguardian.com
+11.15s  1025738  https://guardian.co.uk
+11.18s   759856  https://buzzfeed.com
+11.19s    25241  https://yadi.sk
+11.21s   378166  https://amzn.to
+11.33s   157777  https://ovh.co.uk
+11.32s   478357  https://corriere.it
+11.33s    25341  https://sendspace.com
+11.35s   106545  https://slideshare.net
+11.37s   336680  https://terra.com.br
+11.36s  1193140  https://espn.go.com
+11.39s  1194067  https://espn.com
+11.40s   145583  https://whatsapp.com
+11.39s   267674  https://consumerreports.org
+11.42s   307525  https://elmundo.es
+11.45s   837587  https://spiegel.de
+11.48s    31456  https://aboutads.info
+11.47s    60864  https://zeit.de
+11.57s   366248  https://amazon.com
+11.61s   158974  https://fb.com
+11.66s   141488  https://ovh.com
+11.66s    87675  https://4shared.com
+11.68s   109085  https://iubenda.com
+11.71s    98062  https://nginx.com
+11.76s   403021  https://amazon.es
+11.81s   453431  https://nikkei.com
+11.88s    59580  https://ziddu.com
+11.90s   178622  https://ft.com
+11.91s   124569  https://ameblo.jp
+12.03s   158975  https://facebook.com
+12.02s    34585  https://netvibes.com
+12.05s   350103  https://cnet.com
+12.08s   108212  https://dailymotion.com
+12.09s   127259  https://e-recht24.de
+12.10s    53016  https://ibm.com
+12.12s    86439  https://php.net
+12.24s   162097  https://psychologytoday.com
+12.37s   369633  https://plesk.com
+12.39s   419054  https://netflix.com
+12.38s   150264  https://rediff.com
+12.42s    68714  https://oup.com
+12.56s   210706  https://etsy.com
+Get "https://chicagotribune.com": x509: certificate is valid for *.tools.trbprodcloud.com, *.pilotonline.com, chicago.blueskyinnovation.com, *.citypaper.com, *.dailypress.com, *.metromix.com, *.carrollcountytimes.com, tools.trbprodcloud.com, pilotonline.com, *.vagazette.com, not chicagotribune.com
+12.63s   176499  https://weforum.org
+12.85s   528294  https://rambler.ru
+13.02s   416411  https://eventbrite.com
+13.08s   424604  https://latimes.com
+13.29s    71365  https://buydomains.com
+13.70s   121965  https://columbia.edu
+13.71s   375899  https://abc.es
+14.33s  1200336  https://elpais.com
+15.04s    41413  https://a8.net
+15.14s    74087  https://thoughtco.com
+15.41s   239680  https://ea.com
+15.41s    10058  https://ign.com
+15.57s    28252  https://gravatar.com
+15.62s   125853  https://adobe.com
+15.62s    42606  https://addthis.com
+15.69s      919  https://wiley.com
+15.74s   299475  https://airbnb.com
+15.77s   333808  https://autodesk.com
+16.00s   941280  https://cnbc.com
+16.38s    96988  https://cisco.com
+16.45s   437858  https://disney.com
+16.46s   141239  https://hp.com
+16.55s      260  https://ca.gov
+16.58s   119406  https://surveymonkey.com
+16.61s    50716  https://msn.com
+16.59s   157408  https://20minutos.es
+16.65s   288896  https://discovery.com
+16.74s   653590  https://coursera.org
+16.77s   524190  https://sina.com.cn
+16.80s   121821  https://elsevier.com
+16.80s   401333  https://thestar.com
+16.89s   198946  https://reuters.com
+16.92s   653322  https://nbcnews.com
+16.97s   219966  https://khanacademy.org
+17.04s   197651  https://ebay.com
+17.40s      389  https://www.over-blog.com
+17.43s    81537  https://aol.com
+17.50s   168871  https://googleblog.com
+17.66s   211532  https://house.gov
+17.83s   402692  https://imdb.com
+17.99s   150203  https://statista.com
+18.27s    56140  https://mayoclinic.org
+18.31s   343857  https://nba.com
+18.44s   681556  https://washingtonpost.com
+18.47s   443763  https://booking.com
+18.83s    17418  https://vk.com
+Get "https://usc.edu": net/http: TLS handshake timeout
+19.66s    80070  https://blackberry.com
+19.67s    28984  https://liveinternet.ru
+19.89s   183575  https://nature.com
+20.73s   286963  https://digitaltrends.com
+Get "https://sakura.ne.jp": x509: certificate is valid for www.sakura.ne.jp, not sakura.ne.jp
+22.23s    75608  https://mystrikingly.com
+22.22s     8716  https://canva.com
+22.78s    99991  https://cloudflare.com
+22.94s    14806  https://google.ru
+22.96s   189792  https://jimdofree.com
+22.96s    94877  https://hatena.ne.jp
+22.98s     1561  https://gstatic.com
+23.13s   118011  https://dropbox.com
+23.30s   323341  https://foxnews.com
+23.30s   162108  https://cdc.gov
+23.32s   166832  https://wikihow.com
+23.32s  1317702  https://fastcompany.com
+23.47s    14816  https://google.it
+23.48s    92281  https://mail.google.com
+23.48s    92301  https://gmail.com
+23.50s    77626  https://yale.edu
+23.66s    79690  https://goodreads.com
+23.68s    14811  https://google.ca
+23.69s    14779  https://google.de
+23.69s    14776  https://google.es
+23.83s   172399  https://android.com
+23.86s    23677  https://addtoany.com
+24.05s    78995  https://bt.com
+24.67s   140629  https://nokia.com
+24.79s   209033  https://dell.com
+24.83s   275671  https://eonline.com
+24.85s    10940  https://bloomberg.com
+24.89s   412226  https://shutterstock.com
+24.90s    21993  https://academia.edu
+24.89s    45884  https://dreniq.com
+24.90s   101626  https://salon.com
+24.90s   251462  https://politico.com
+24.91s   117770  https://billboard.com
+24.94s   940352  https://welt.de
+24.95s    14809  https://google.nl
+24.97s    63944  https://bing.com
+24.98s   242225  https://bbc.com
+24.98s    14863  https://google.co.in
+24.99s   153672  https://sciencedaily.com
+24.99s   105537  https://nicovideo.jp
+25.01s   160849  https://wp.com
+25.00s    57084  https://about.com
+25.02s    51945  https://oreilly.com
+25.05s   396410  https://huffpost.com
+25.06s    62529  https://utexas.edu
+25.08s   160849  https://files.wordpress.com
+25.07s     1875  https://feedproxy.google.com
+25.10s   164467  https://asahi.com
+25.11s    27631  https://hm.com
+25.14s    14791  https://google.fr
+25.14s    12859  https://google.co.jp
+25.14s    14851  https://google.co.id
+25.14s   101166  https://nifty.com
+25.15s   328022  https://theverge.com
+25.16s  1241681  https://nytimes.com
+25.18s    90161  https://ox.ac.uk
+25.18s   103620  https://ftc.gov
+25.21s    68708  https://apple.com
+25.20s   539282  https://indiatimes.com
+25.22s   150062  https://vice.com
+25.23s   829532  https://dailymail.co.uk
+25.26s   215233  https://naver.com
+25.27s   131494  https://usatoday.com
+25.27s   256944  https://telegraph.co.uk
+25.28s    58337  https://pinterest.com
+25.28s    58103  https://pinterest.co.uk
+25.33s   510203  https://standard.co.uk
+25.32s    26549  https://indiegogo.com
+25.35s   714386  https://wired.com
+25.35s   292699  https://lemonde.fr
+25.37s   195939  https://trustpilot.com
+25.41s  1141810  https://cnn.com
+25.61s  3352871  https://wsj.com
+25.62s    41346  https://epa.gov
+25.64s   133590  https://wa.me
+25.64s    97880  https://entrepreneur.com
+25.66s   586397  https://steampowered.com
+25.75s   502302  https://mirror.co.uk
+25.79s   302252  https://ebay.co.uk
+25.82s   139243  https://state.gov
+25.85s   313085  https://target.com
+25.87s   125725  https://huawei.com
+25.89s   101079  https://samsung.com
+25.91s       43  https://photos1.blogger.com
+25.98s   303095  https://theatlantic.com
+26.03s   106382  https://instructables.com
+26.15s     7119  https://amazon.it
+26.18s   294778  https://express.co.uk
+26.25s  1030815  https://behance.net
+26.35s   280678  https://bbc.co.uk
+26.35s    80194  https://tes.com
+26.37s    94951  https://businessinsider.com
+26.41s   303392  https://vox.com
+26.45s    13628  https://lycos.com
+26.51s   297720  https://kickstarter.com
+26.53s   479435  https://nvidia.com
+26.78s    70670  https://usgs.gov
+26.82s   981907  https://lonelyplanet.com
+26.84s     9947  https://un.org
+26.89s    30080  https://mysql.com
+26.90s   396416  https://huffingtonpost.com
+27.12s    95196  https://offset.com
+27.48s   130937  https://000webhost.com
+27.64s   516004  https://lego.com
+28.18s   245311  https://interia.pl
+28.38s      743  https://boston.com
+28.91s   261664  https://myspace.com
+Get "https://cambridge.org": dial tcp 204.74.99.103:443: i/o timeout
+Get "https://ikea.com": dial tcp 204.74.99.103:443: i/o timeout
+Get "https://repubblica.it": dial tcp 213.92.16.101:443: i/o timeout
+Get "https://ig.com.br": dial tcp 54.208.27.227:443: i/o timeout
+Get "https://noaa.gov": dial tcp [2610:20:8000:8c01::24]:443: i/o timeout
+Get "https://worldbank.org": dial tcp 34.232.182.112:443: i/o timeout
+Get "https://unesco.org": dial tcp 193.242.192.45:443: i/o timeout
+Get "https://xinhuanet.com": dial tcp 202.108.119.193:443: i/o timeout
+30.08s   348097  https://rakuten.co.jp
+Get "https://www.biglobe.ne.jp/": dial tcp: i/o timeout
+Get "https://outlook.live.com/owa/": dial tcp: i/o timeout
+Get "https://www.urbandictionary.com/": dial tcp: i/o timeout
+Get "https://www.spotify.com/": dial tcp: i/o timeout
+Get "https://www.pexels.com/": dial tcp: i/o timeout
+Get "https://outlook.live.com/owa/": dial tcp: lookup outlook.live.com: no such host
+Get "https://telegram.org/": dial tcp: i/o timeout
+Get "https://www.quora.com/": dial tcp: i/o timeout
+Get "http://www.networkadvertising.org/": dial tcp: lookup www.networkadvertising.org: no such host
+Get "https://www.sapo.pt/": dial tcp: i/o timeout
+32.06s    15385  https://telegram.me
+42.82s   806916  https://slate.com
