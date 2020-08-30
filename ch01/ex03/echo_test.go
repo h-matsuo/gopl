@@ -8,15 +8,14 @@ import (
 
 const lenOsArgs = 100
 
-var osArgsBuf = generateOsArgs()
+var osArgsBuf []string
 
-func generateOsArgs() []string {
-	result := make([]string, 0, lenOsArgs)
-	result = append(result, "cmd-name")
+func init() {
+	osArgsBuf = make([]string, 0, lenOsArgs)
+	osArgsBuf = append(osArgsBuf, "cmd-name")
 	for i := 1; i < lenOsArgs; i++ {
-		result = append(result, fmt.Sprintf("arg[%d]", i))
+		osArgsBuf = append(osArgsBuf, fmt.Sprintf("arg[%d]", i))
 	}
-	return result
 }
 
 func BenchmarkNonEfficientEcho(b *testing.B) {
