@@ -35,9 +35,6 @@ func handleConn(conn net.Conn) {
 	io.WriteString(conn, "220 Service ready for new user.\n")
 
 	var dataConn net.Conn
-	if dataConn != nil {
-		dataConn.Close()
-	}
 
 	who := conn.RemoteAddr().String()
 
