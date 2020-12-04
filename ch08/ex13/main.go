@@ -47,7 +47,6 @@ func handleConn(conn net.Conn) {
 	entering <- ch
 
 	text := make(chan string)
-	tick := time.Tick(time.Second * 10)
 	done := make(chan struct{})
 
 	input := bufio.NewScanner(conn)
@@ -62,11 +61,8 @@ loop:
 	for {
 		select {
 		case t := <-text:
-			tick = time.Tick(time.Minute * 5)
-			go func() {
-				messages <- who + ": " + t
-			}()
-		case <-tick:
+			messages <- who + ": " + t
+		case <-time.After(time.Minute * 5):
 			messages <- who + ": No messages sent for 5 min; timeout."
 			break loop
 		case <-done:
