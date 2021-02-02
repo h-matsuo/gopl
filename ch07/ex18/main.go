@@ -20,7 +20,8 @@ type Element struct {
 func main() {
 	dec := xml.NewDecoder(os.Stdin)
 	root := visit(dec)
-	fmt.Printf("%v\n", root)
+	// fmt.Printf("%v\n", root)
+	print(root)
 }
 
 func visit(dec *xml.Decoder) []Node {
@@ -35,15 +36,35 @@ func visit(dec *xml.Decoder) []Node {
 		}
 		switch tok := tok.(type) {
 		case xml.StartElement:
-			if node != nil {
-				node = append(node, &Element{tok.Name, tok.Attr, []Node{}})
-			}
-			child := visit(dec)
-			node = append(node, child)
+			// fmt.Println("[DEBUG] StartElement: <" + tok.Name.Local + ">")
+			parent := &Element{tok.Name, tok.Attr, nil}
+			children := visit(dec)
+			parent.Children = children
+			node = append(node, parent)
 		case xml.EndElement:
-			return []Node{node}
+			// fmt.Println("[DEBUG] EndElement: </" + tok.Name.Local + ">")
+			return node
 		case xml.CharData:
+			// fmt.Println("[DEBUG] CharData: " + CharData(tok))
 			node = append(node, CharData(tok))
+		}
+	}
+}
+
+func print(node []Node) {
+	for _, n := range node {
+		fmt.Println("[DEBUG] node")
+		switch e := n.(type) {
+		case CharData:
+			fmt.Print(e)
+		case Element:
+			fmt.Print("<" + e.Type.Local + " ")
+			for _, a := range e.Attr {
+				fmt.Print(a.Name.Local + "=" + a.Value + " ")
+			}
+			fmt.Print(">")
+			print(e.Children)
+			fmt.Print("</" + e.Type.Local + ">")
 		}
 	}
 }
