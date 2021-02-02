@@ -9,6 +9,12 @@ import (
 	"text/scanner"
 )
 
+// Unmarshal parses S-expression data and populates the variable
+// whose address is in the non-nil pointer out.
+func Unmarshal(data []byte, out interface{}) error {
+	return NewDecoder(bytes.NewReader(data)).Decode(out)
+}
+
 type Decoder struct {
 	r io.Reader
 }
@@ -18,18 +24,8 @@ func NewDecoder(r io.Reader) *Decoder {
 }
 
 func (dec *Decoder) Decode(v interface{}) (err error) {
-	return scan(dec.r, v)
-}
-
-// Unmarshal parses S-expression data and populates the variable
-// whose address is in the non-nil pointer out.
-func Unmarshal(data []byte, out interface{}) error {
-	return scan(bytes.NewReader(data), out)
-}
-
-func scan(data io.Reader, out interface{}) (err error) {
 	lex := &lexer{scan: scanner.Scanner{Mode: scanner.GoTokens}}
-	lex.scan.Init(data)
+	lex.scan.Init(dec.r)
 	lex.next() // get the first token
 	defer func() {
 		// NOTE: this is not an example of ideal error handling.
@@ -37,7 +33,7 @@ func scan(data io.Reader, out interface{}) (err error) {
 			err = fmt.Errorf("error at %s: %v", lex.scan.Position, x)
 		}
 	}()
-	read(lex, reflect.ValueOf(out).Elem())
+	read(lex, reflect.ValueOf(v).Elem())
 	return nil
 }
 

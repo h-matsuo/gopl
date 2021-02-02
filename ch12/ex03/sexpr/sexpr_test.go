@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestDecode(t *testing.T) {
+func TestEncode(t *testing.T) {
 	type X struct {
 		b1, b2 bool
 		f      float32
