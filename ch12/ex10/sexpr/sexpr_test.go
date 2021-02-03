@@ -4,14 +4,14 @@ import (
 	"testing"
 )
 
-func TestEncode(t *testing.T) {
+func TestDecode(t *testing.T) {
 	type X struct {
 		B1, B2 bool
 		F      float32
 		Z      complex64
 		C      chan int
 		A      map[struct{ X int }]<-chan []string
-		I      interface{}
+		// I interface{}
 	}
 	m := make(map[struct{ X int }]<-chan []string)
 	m[struct{ X int }{1}] = make(chan []string, 5)
@@ -23,7 +23,7 @@ func TestEncode(t *testing.T) {
 		Z:  1 + 2i,
 		C:  make(chan int),
 		A:  m,
-		I:  []int{1, 2, 3},
+		// I: []int{1, 2, 3},
 	}
 
 	// Encode it
@@ -32,4 +32,10 @@ func TestEncode(t *testing.T) {
 		t.Fatalf("Marshal failed: %v", err)
 	}
 	t.Logf("Marshal() = %s\n", data)
+
+	// Decode it
+	if err := Unmarshal(data, &x); err != nil {
+		t.Fatalf("Unmarshal failed: %v", err)
+	}
+	t.Logf("Unmarshal() = %+v\n", x)
 }
