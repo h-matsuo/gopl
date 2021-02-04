@@ -15,6 +15,13 @@ import (
 	"syscall"
 )
 
+type transferType string
+
+const (
+	typeASCII transferType = "A"
+	typeImage              = "I"
+)
+
 func StartProtocolInterpreter(port int) {
 	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", port))
 	if err != nil {
@@ -35,13 +42,16 @@ func handleConn(conn net.Conn) {
 	defer conn.Close()
 	io.WriteString(conn, "220 Service ready for new user.\n")
 
-	var dataConn net.Conn
-	workDir, err := os.Getwd()
+	who := conn.RemoteAddr().String()
+
+	currentDir, err := os.Getwd()
 	if err != nil {
 		io.WriteString(conn, "421 Service not available, closing control connection.\n")
 		return
 	}
-	who := conn.RemoteAddr().String()
+
+	var dataConn net.Conn
+	currentTransferType := typeASCII
 
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
@@ -108,7 +118,7 @@ func handleConn(conn net.Conn) {
 			io.WriteString(conn, "200 Command okay.\n")
 
 		case "PWD": // PWD
-			io.WriteString(conn, fmt.Sprintf("257 \"%s\".\n", workDir))
+			io.WriteString(conn, fmt.Sprintf("257 \"%s\".\n", currentDir))
 
 		case "LIST", "NLIST": // LIST [<pathname>]
 			if len(args) > 2 {
@@ -119,7 +129,7 @@ func handleConn(conn net.Conn) {
 				io.WriteString(conn, "426 Connection closed; transfer aborted.\n")
 				continue
 			}
-			pathname := workDir
+			pathname := currentDir
 			if len(args) == 2 {
 				pathname = args[1]
 			}
@@ -143,14 +153,26 @@ func handleConn(conn net.Conn) {
 			}
 			pathname := args[1]
 			if filepath.IsAbs(pathname) {
-				workDir = pathname
+				currentDir = pathname
 			} else {
-				workDir = filepath.Join(workDir, pathname)
+				currentDir = filepath.Join(currentDir, pathname)
 			}
-			io.WriteString(conn, fmt.Sprintf("200 directory changed to %s.\n", workDir))
+			io.WriteString(conn, fmt.Sprintf("200 directory changed to %s.\n", currentDir))
 
-		// case "TYPE":
-		// TODO: 実装？
+		case "TYPE": // TYPE <type code>
+			if len(args) != 2 {
+				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
+				continue
+			}
+			specifiedType := transferType(args[1])
+			switch specifiedType {
+			case typeASCII, typeImage:
+				currentTransferType = specifiedType
+			default:
+				io.WriteString(conn, "504 Command not implemented for that parameter.\n")
+				continue
+			}
+			io.WriteString(conn, fmt.Sprintf("200 file transfer type changed to %s.\n", currentTransferType))
 
 		case "RETR": // RETR <pathname>
 			if len(args) != 2 {
@@ -168,7 +190,26 @@ func handleConn(conn net.Conn) {
 				continue
 			}
 			io.WriteString(conn, "125 Data connection already open; transfer starting.\n")
-			io.Copy(dataConn, bufio.NewReader(f))
+			reader := bufio.NewReader(f)
+			switch currentTransferType {
+			case typeASCII:
+				for {
+					line, isPrefix, err := reader.ReadLine()
+					if err == io.EOF {
+						break
+					}
+					if err != nil {
+						io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+						break
+					}
+					dataConn.Write(line)
+					if !isPrefix {
+						io.WriteString(dataConn, "\r\n")
+					}
+				}
+			case typeImage:
+				io.Copy(dataConn, reader)
+			}
 			dataConn.Close()
 			dataConn = nil
 			io.WriteString(conn, "226 Closing data connection.\n")
