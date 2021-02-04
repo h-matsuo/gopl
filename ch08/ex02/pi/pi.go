@@ -9,6 +9,7 @@ import (
 	"net"
 	"os"
 	"os/user"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"syscall"
@@ -50,7 +51,7 @@ func handleConn(conn net.Conn) {
 		args := strings.Split(command, " ")
 		switch args[0] {
 
-		case "USER":
+		case "USER": // USER <username>
 			if len(args) != 2 {
 				io.WriteString(conn, "501 Syntax error in parameters or arguments.\n")
 				continue
@@ -84,7 +85,7 @@ func handleConn(conn net.Conn) {
 			}
 			io.WriteString(conn, "230 User logged in, proceed.\n")
 
-		case "PORT":
+		case "PORT": // PORT <host,port in special format>
 			if len(args) != 2 {
 				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
 				continue
@@ -106,14 +107,10 @@ func handleConn(conn net.Conn) {
 			dataConn = dConn
 			io.WriteString(conn, "200 Command okay.\n")
 
-		case "PWD":
-			if len(args) > 2 {
-				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
-				continue
-			}
+		case "PWD": // PWD
 			io.WriteString(conn, fmt.Sprintf("257 \"%s\".\n", workDir))
 
-		case "LIST", "NLIST":
+		case "LIST", "NLIST": // LIST [<pathname>]
 			if len(args) > 2 {
 				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
 				continue
@@ -122,11 +119,11 @@ func handleConn(conn net.Conn) {
 				io.WriteString(conn, "426 Connection closed; transfer aborted.\n")
 				continue
 			}
-			filepath := workDir
+			pathname := workDir
 			if len(args) == 2 {
-				filepath = args[1]
+				pathname = args[1]
 			}
-			fileInfoList, err := ioutil.ReadDir(filepath)
+			fileInfoList, err := ioutil.ReadDir(pathname)
 			if err != nil {
 				io.WriteString(conn, "550 Requested action not taken.\n")
 				continue
@@ -139,13 +136,23 @@ func handleConn(conn net.Conn) {
 			dataConn = nil
 			io.WriteString(conn, "226 Closing data connection.\n")
 
-		// case "CWD":
-		// TODO: 実装
+		case "CWD": // CWD <pathname>
+			if len(args) != 2 {
+				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
+				continue
+			}
+			pathname := args[1]
+			if filepath.IsAbs(pathname) {
+				workDir = pathname
+			} else {
+				workDir = filepath.Join(workDir, pathname)
+			}
+			io.WriteString(conn, fmt.Sprintf("200 directory changed to %s.\n", workDir))
 
 		// case "TYPE":
 		// TODO: 実装？
 
-		case "RETR":
+		case "RETR": // RETR <pathname>
 			if len(args) != 2 {
 				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
 				continue
@@ -154,8 +161,8 @@ func handleConn(conn net.Conn) {
 				io.WriteString(conn, "426 Connection closed; transfer aborted.\n")
 				continue
 			}
-			filepath := args[1]
-			f, err := os.Open(filepath)
+			pathname := args[1]
+			f, err := os.Open(pathname)
 			if err != nil {
 				io.WriteString(conn, "550 Requested action not taken.\n")
 				continue
@@ -169,7 +176,7 @@ func handleConn(conn net.Conn) {
 		// case "STOR":
 		// TODO: 実装
 
-		case "QUIT":
+		case "QUIT": // QUIT
 			io.WriteString(conn, "221 Service closing control connection.\n")
 			break
 
