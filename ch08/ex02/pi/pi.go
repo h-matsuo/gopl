@@ -18,8 +18,8 @@ import (
 type transferType string
 
 const (
-	typeASCII transferType = "A"
-	typeImage              = "I"
+	typeASCII  transferType = "A"
+	typeBinary              = "I"
 )
 
 func StartProtocolInterpreter(port int) {
@@ -120,7 +120,7 @@ func handleConn(conn net.Conn) {
 		case "PWD": // PWD
 			io.WriteString(conn, fmt.Sprintf("257 \"%s\".\n", currentDir))
 
-		case "LIST", "NLIST": // LIST [<pathname>]
+		case "LIST", "NLST": // LIST [<pathname>]
 			if len(args) > 2 {
 				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
 				continue
@@ -166,7 +166,7 @@ func handleConn(conn net.Conn) {
 			}
 			specifiedType := transferType(args[1])
 			switch specifiedType {
-			case typeASCII, typeImage:
+			case typeASCII, typeBinary:
 				currentTransferType = specifiedType
 			default:
 				io.WriteString(conn, "504 Command not implemented for that parameter.\n")
@@ -190,9 +190,9 @@ func handleConn(conn net.Conn) {
 				continue
 			}
 			io.WriteString(conn, "125 Data connection already open; transfer starting.\n")
-			reader := bufio.NewReader(f)
 			switch currentTransferType {
 			case typeASCII:
+				reader := bufio.NewReader(f)
 				for {
 					line, isPrefix, err := reader.ReadLine()
 					if err == io.EOF {
@@ -202,20 +202,72 @@ func handleConn(conn net.Conn) {
 						io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
 						break
 					}
-					dataConn.Write(line)
+					if _, err := dataConn.Write(line); err != nil {
+						io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+						break
+					}
 					if !isPrefix {
-						io.WriteString(dataConn, "\r\n")
+						if _, err := io.WriteString(dataConn, "\r\n"); err != nil {
+							io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+							break
+						}
 					}
 				}
-			case typeImage:
-				io.Copy(dataConn, reader)
+			case typeBinary:
+				io.Copy(dataConn, f)
 			}
 			dataConn.Close()
 			dataConn = nil
 			io.WriteString(conn, "226 Closing data connection.\n")
 
-		// case "STOR":
-		// TODO: 実装
+		case "STOR": // STOR <pathname>
+			if len(args) != 2 {
+				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
+				continue
+			}
+			if dataConn == nil {
+				io.WriteString(conn, "426 Connection closed; transfer aborted.\n")
+				continue
+			}
+			pathname := args[1]
+			if !filepath.IsAbs(pathname) {
+				pathname = filepath.Join(currentDir, pathname)
+			}
+			f, err := os.Create(pathname)
+			if err != nil {
+				io.WriteString(conn, "550 Requested action not taken.\n")
+				continue
+			}
+			io.WriteString(conn, "125 Data connection already open; transfer starting.\n")
+			switch currentTransferType {
+			case typeASCII:
+				reader := bufio.NewReader(dataConn)
+				for {
+					line, isPrefix, err := reader.ReadLine()
+					if err == io.EOF {
+						break
+					}
+					if err != nil {
+						io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+						break
+					}
+					if _, err := f.Write(line); err != nil {
+						io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+						break
+					}
+					if !isPrefix {
+						if _, err := fmt.Fprint(f, "\r\n"); err != nil {
+							io.WriteString(conn, "451 Requested action aborted. Local error in processing.\n")
+							break
+						}
+					}
+				}
+			case typeBinary:
+				io.Copy(f, dataConn)
+			}
+			dataConn.Close()
+			dataConn = nil
+			io.WriteString(conn, "226 Closing data connection.\n")
 
 		case "QUIT": // QUIT
 			io.WriteString(conn, "221 Service closing control connection.\n")

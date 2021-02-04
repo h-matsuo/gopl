@@ -2,13 +2,9 @@
 
 go run github.com/h-matsuo/gopl/ch08/ex02 -port 8000 &
 
-# Supports following FTP commands:
-# - USER
-# - PORT
-# - LIST
-# - RETR
-# - QUIT
+sleep 1
 
-ftp localhost 8000
+ftp $USER@localhost 8000
+# Supports: pwd, cd, ls, get, put, ascii, binary
 
 wait
