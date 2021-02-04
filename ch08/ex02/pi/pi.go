@@ -35,7 +35,11 @@ func handleConn(conn net.Conn) {
 	io.WriteString(conn, "220 Service ready for new user.\n")
 
 	var dataConn net.Conn
-
+	workDir, err := os.Getwd()
+	if err != nil {
+		io.WriteString(conn, "421 Service not available, closing control connection.\n")
+		return
+	}
 	who := conn.RemoteAddr().String()
 
 	scanner := bufio.NewScanner(conn)
@@ -102,9 +106,14 @@ func handleConn(conn net.Conn) {
 			dataConn = dConn
 			io.WriteString(conn, "200 Command okay.\n")
 
-		case "LIST":
-			fallthrough
-		case "NLIST":
+		case "PWD":
+			if len(args) > 2 {
+				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
+				continue
+			}
+			io.WriteString(conn, fmt.Sprintf("257 \"%s\".\n", workDir))
+
+		case "LIST", "NLIST":
 			if len(args) > 2 {
 				io.WriteString(conn, "500 Syntax error, command unrecognized.\n")
 				continue
@@ -113,7 +122,7 @@ func handleConn(conn net.Conn) {
 				io.WriteString(conn, "426 Connection closed; transfer aborted.\n")
 				continue
 			}
-			filepath := "."
+			filepath := workDir
 			if len(args) == 2 {
 				filepath = args[1]
 			}
@@ -129,6 +138,12 @@ func handleConn(conn net.Conn) {
 			dataConn.Close()
 			dataConn = nil
 			io.WriteString(conn, "226 Closing data connection.\n")
+
+		// case "CWD":
+		// TODO: 実装
+
+		// case "TYPE":
+		// TODO: 実装？
 
 		case "RETR":
 			if len(args) != 2 {
@@ -150,6 +165,9 @@ func handleConn(conn net.Conn) {
 			dataConn.Close()
 			dataConn = nil
 			io.WriteString(conn, "226 Closing data connection.\n")
+
+		// case "STOR":
+		// TODO: 実装
 
 		case "QUIT":
 			io.WriteString(conn, "221 Service closing control connection.\n")

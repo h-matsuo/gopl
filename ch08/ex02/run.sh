@@ -10,3 +10,5 @@ go run github.com/h-matsuo/gopl/ch08/ex02 -port 8000 &
 # - QUIT
 
 ftp localhost 8000
+
+wait
